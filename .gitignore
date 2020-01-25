@@ -13,3 +13,10 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+
+# Mac specific
+**/.DS_STORE
+.DS_STORE
+
+# Ignore local tests
+tests/*
