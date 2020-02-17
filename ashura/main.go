@@ -5,6 +5,7 @@ import (
 	"os"
 	"runtime"
 	"os/exec"
+	"ashura/dos"
 )
 
 func main() {
