@@ -1,0 +1,14 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "dos",
+    srcs = [
+        "httpFlood.go",
+        "sillyWorm.go",
+        "tcpFlood.go",
+        "udpFlood.go",
+    ],
+    importpath = "ashura/pkg/dos",
+    visibility = ["//visibility:public"],
+    deps = ["@com_github_sirupsen_logrus//:logrus"],
+)
