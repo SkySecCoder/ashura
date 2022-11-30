@@ -18,5 +18,12 @@
 **/.DS_STORE
 .DS_STORE
 
+# Golang specific
+*/go.mod
+*/go.sum
+
 # Ignore local tests
 tests/*
+
+# bazel specific
+/bazel-*
