@@ -1,4 +1,4 @@
-package portScanner
+package scanner
 
 import (
 	"os/exec"
