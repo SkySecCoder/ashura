@@ -2,10 +2,12 @@ load("@io_bazel_rules_go//go:def.bzl", "go_library")
 
 go_library(
     name = "scanner",
-    srcs = [
-        "portScanner.go",
-        "ulimit.go",
-    ],
+    srcs = ["scanner.go"],
     importpath = "ashura/pkg/scanner",
     visibility = ["//visibility:public"],
+    deps = [
+        "//ashura/pkg/scanner/awsScanner",
+        "//ashura/pkg/scanner/gitScanner",
+        "@com_github_sirupsen_logrus//:logrus",
+    ],
 )

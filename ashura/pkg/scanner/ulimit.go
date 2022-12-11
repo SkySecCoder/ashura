@@ -3,6 +3,7 @@ package portScanner
 import (
 	"os/exec"
 	"strings"
+	"strconv"
 )
 
 func Ulimit() int64 {

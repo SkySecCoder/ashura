@@ -5,6 +5,7 @@ import (
 	"fmt"
 	log "github.com/sirupsen/logrus"
 	"net/http"
+	netUrl "net/url"
 	"strconv"
 	"time"
 )
@@ -25,6 +26,12 @@ type Report struct {
 var report Report
 
 func HttpFlood(url string) {
+	_, err := netUrl.ParseRequestURI(url)
+	if err != nil {
+		log.Info("[-] Invalid url provided, please try again...")
+		return
+	}
+
 	report = Report{Successful: 0, Failed: 0, Total: 0}
 	sleepInterval := 2
 	totalReqCount := 1000

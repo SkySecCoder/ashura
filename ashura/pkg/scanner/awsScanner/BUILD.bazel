@@ -1,18 +1,14 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_library")
 
 go_library(
-    name = "awsDestroyer",
-    srcs = [
-        "awsDestroyer.go",
-        "regions.go",
-    ],
-    importpath = "ashura/pkg/awsDestroyer",
+    name = "awsScanner",
+    srcs = ["iamReport.go"],
+    importpath = "ashura/pkg/scanner/awsScanner",
     visibility = ["//visibility:public"],
     deps = [
         "@com_github_aws_aws_sdk_go//aws",
         "@com_github_aws_aws_sdk_go//aws/credentials",
         "@com_github_aws_aws_sdk_go//aws/session",
-        "@com_github_aws_aws_sdk_go//service/ec2",
         "@com_github_aws_aws_sdk_go//service/sts",
     ],
 )

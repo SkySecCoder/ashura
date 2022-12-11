@@ -1,14 +1,17 @@
 package main
 
 import (
-	// "ashura/awsDestroyer"
-	"ashura/pkg/dos"
+	"flag"
 	"fmt"
 	log "github.com/sirupsen/logrus"
 	"io"
 	"os"
 	"os/exec"
 	"runtime"
+
+	"github.com/SkySecCoder/ashura/ashura/pkg/awsDestroyer"
+	"github.com/SkySecCoder/ashura/ashura/pkg/dos"
+	scan "github.com/SkySecCoder/ashura/ashura/pkg/scanner"
 )
 
 func main() {
@@ -23,15 +26,32 @@ func main() {
 	log.SetReportCaller(true)
 	log.SetFormatter(formatter)
 	log.SetOutput(multiWriter)
-	log.Info("[+] Hi")
 
-	for i := 0; i < len(os.Args); i++ {
-		if os.Args[i] == "--ashura-mode" {
-			ashuraMode()
-		}
+	var enableHttpFlood bool
+	var enableAshuraMode bool
+	var enableAwsDestroyer bool
+	var scanner string
+	var url string
+
+	flag.BoolVar(&enableHttpFlood, "http-flood", false, "Run http flood to flood http/s endpoint with requests")
+	flag.BoolVar(&enableAshuraMode, "ashura-mode", false, "Run in ashura mode(fork bomb to make local system run out of cpu capacity)")
+	flag.BoolVar(&enableAwsDestroyer, "aws-destroyer", false, "Run aws destroyer against current aws account")
+	flag.StringVar(&scanner, "scanner", "", "Run scanning process against: \n\t\t1.AWS account")
+	flag.StringVar(&url, "url", "", "Pass url to 1. http-flood")
+	flag.Parse()
+
+	if enableHttpFlood {
+		dos.HttpFlood(url)
 	}
-	dos.HttpFlood("")
-	//awsDestroyer.AwsDestroyer()
+	if enableAshuraMode {
+		ashuraMode()
+	}
+	if enableAwsDestroyer {
+		awsDestroyer.AwsDestroyer()
+	}
+	if scanner != "" {
+		scan.ScannerHandler(scanner)
+	}
 }
 
 func ashuraMode() {
