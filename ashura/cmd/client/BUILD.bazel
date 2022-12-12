@@ -6,10 +6,10 @@ go_library(
     importpath = "ashura/cmd/client",
     visibility = ["//visibility:private"],
     deps = [
+        "//ashura/pkg/awsDestroyer",
+        "//ashura/pkg/dos",
+        "//ashura/pkg/scanner",
         "@com_github_sirupsen_logrus//:logrus",
-        "@com_github_skyseccoder_ashura//ashura/pkg/awsDestroyer:go_default_library",
-        "@com_github_skyseccoder_ashura//ashura/pkg/dos:go_default_library",
-        "@com_github_skyseccoder_ashura//ashura/pkg/scanner:go_default_library",
     ],
 )
 

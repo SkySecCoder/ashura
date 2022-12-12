@@ -5,5 +5,9 @@ go_library(
     srcs = ["scanner.go"],
     importpath = "ashura/pkg/scanner",
     visibility = ["//visibility:public"],
-    deps = ["@com_github_sirupsen_logrus//:logrus"],
+    deps = [
+        "//ashura/pkg/scanner/awsScanner",
+        "//ashura/pkg/scanner/gitScanner",
+        "@com_github_sirupsen_logrus//:logrus",
+    ],
 )

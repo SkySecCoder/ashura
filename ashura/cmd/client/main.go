@@ -9,9 +9,9 @@ import (
 	"os/exec"
 	"runtime"
 
-	"github.com/SkySecCoder/ashura/ashura/pkg/awsDestroyer"
-	"github.com/SkySecCoder/ashura/ashura/pkg/dos"
-	scan "github.com/SkySecCoder/ashura/ashura/pkg/scanner"
+	"ashura/pkg/awsDestroyer"
+	"ashura/pkg/dos"
+	scan "ashura/pkg/scanner"
 )
 
 func main() {

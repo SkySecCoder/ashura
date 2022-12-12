@@ -1,4 +1,4 @@
-package scanner
+package ulimitScanner
 
 import (
     "os/exec"

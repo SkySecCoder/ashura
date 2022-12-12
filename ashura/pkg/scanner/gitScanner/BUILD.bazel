@@ -5,5 +5,9 @@ go_library(
     srcs = ["gitScanner.go"],
     importpath = "ashura/pkg/scanner/gitScanner",
     visibility = ["//visibility:public"],
-    deps = ["@com_github_go_git_go_git_v5//:go-git"],
+    deps = [
+        "@com_github_go_git_go_git_v5//:go-git",
+        "@com_github_go_git_go_git_v5//plumbing",
+        "@com_github_go_git_go_git_v5//plumbing/object",
+    ],
 )
